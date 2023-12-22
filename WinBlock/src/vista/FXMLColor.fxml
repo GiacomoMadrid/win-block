@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" maxWidth="442.0" minHeight="442.0" prefHeight="760.0" prefWidth="442.0" styleClass="anchor-base-ventana" stylesheets="@../recursos/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ColorController">
+   <children>
+      <AnchorPane fx:id="anchorPrograma" layoutX="10.0" layoutY="10.0" onMouseDragged="#moverVentana" onMousePressed="#getCoordinates" prefHeight="40.0" prefWidth="200.0" styleClass="barra-programa" stylesheets="@../recursos/estilos.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="lblPrograma" alignment="CENTER" contentDisplay="CENTER" ellipsisString="." layoutX="47.0" layoutY="5.0" maxHeight="36.0" minHeight="36.0" prefHeight="36.0" prefWidth="416.0" styleClass="titulo-ventana" stylesheets="@../recursos/estilos.css" text="Paleta de colores w̃" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="4.0" />
+            <Label fx:id="lblIcono" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="2.0" prefHeight="32.0" prefWidth="32.0" style="-fx-background-image: url('/recursos/imagenes/Kolores1.png');" styleClass="label-icono" stylesheets="@../recursos/estilos.css" textAlignment="CENTER" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="4.0" />
+            <Button fx:id="btnSalir" contentDisplay="CENTER" ellipsisString="." maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" onAction="#clickSalir" prefHeight="32.0" prefWidth="32.0" style="-fx-background-image: url('/recursos/imagenes/CerrarIco.png');" styleClass="boton-accion" stylesheets="@../recursos/estilos.css" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="4.0" />
+            <Button fx:id="btnOcultar" contentDisplay="CENTER" ellipsisString="." layoutX="10.0" layoutY="10.0" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" onAction="#clickOcultar" prefHeight="32.0" prefWidth="32.0" style="-fx-background-image: url('/recursos/imagenes/MinimisarIco.png');" styleClass="boton-accion" stylesheets="@../recursos/estilos.css" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="4.0" />
+            <Pane fx:id="panSeparador1" layoutX="579.0" layoutY="-79.0" maxHeight="40.0" maxWidth="4.0" minHeight="40.0" minWidth="4.0" prefHeight="40.0" prefWidth="4.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="600.0" minHeight="600.0" prefHeight="600.0" prefWidth="200.0" styleClass="anchor-base-ventana-secundaria" stylesheets="@../recursos/estilos.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
+         <children>
+            <VBox layoutX="14.0" layoutY="14.0" maxWidth="526.0" minWidth="526.0" prefHeight="200.0" prefWidth="526.0" styleClass="vbox-color" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="490.0" minWidth="490.0" prefWidth="490.0" style="-fx-text-fill: #FF0000;" styleClass="label-texto-20" text="Pintar el texto/fondo">
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="490.0" minWidth="490.0" prefWidth="490.0" style="-fx-text-fill: #FFCC00;" styleClass="label-texto-20" text="═══════════════════════">
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label maxWidth="490.0" minWidth="490.0" prefWidth="490.0" styleClass="label-texto-16" text="Elija un color:">
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="lblSliderRojo" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" style="-fx-text-fill: #FFFFFF;" styleClass="label-texto-16" text="Rojo: 0">
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Slider fx:id="sliderRojo" max="255.0" maxWidth="490.0" minWidth="490.0" onScroll="#actualizarSliderRojoMouse" prefWidth="490.0" styleClass="slider-color-rojo" stylesheets="@../recursos/estilos.css" value="255.0">
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" top="5.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <Label fx:id="lblSliderVerde" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" style="-fx-text-fill: #FFFFFF;" styleClass="label-texto-16" text="Verde: 0">
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Slider fx:id="sliderVerde" max="255.0" maxWidth="490.0" minWidth="490.0" onScroll="#actualizarSliderVerdeMouse" prefWidth="490.0" styleClass="slider-color-verde" value="255.0">
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" top="5.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <Label fx:id="lblSliderAzul" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" style="-fx-text-fill: #FFFFFF;" styleClass="label-texto-16" text="Azul: 0">
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Slider fx:id="sliderAzul" max="255.0" maxWidth="490.0" minWidth="490.0" onScroll="#actualizarSliderAzulMouse" prefWidth="490.0" styleClass="slider-color-azul" value="255.0">
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" top="5.0" />
+                     </VBox.margin>
+                  </Slider>
+                  <HBox maxWidth="354.0" prefHeight="135.0" prefWidth="354.0">
+                     <children>
+                        <VBox maxWidth="220.0" minWidth="220.0" prefHeight="204.0" prefWidth="220.0">
+                           <children>
+                              <Label maxWidth="220.0" minWidth="220.0" prefHeight="21.0" prefWidth="220.0" styleClass="label-texto-16" text="Colores Predeterminados">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <AnchorPane maxHeight="104.0" maxWidth="204.0" minHeight="104.0" minWidth="204.0" prefHeight="104.0" prefWidth="204.0" styleClass="anchor-base-borde">
+                                 <children>
+                                    <GridPane alignment="CENTER" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" />
+                                        <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Pane fx:id="pan00" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" />
+                                          <Pane fx:id="pan01" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.rowIndex="1" />
+                                          <Pane fx:id="pan02" layoutX="10.0" layoutY="10.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.rowIndex="2" />
+                                          <Pane fx:id="pan03" layoutX="34.0" layoutY="10.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.rowIndex="3" />
+                                          <Pane fx:id="pan10" layoutX="10.0" layoutY="10.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="1" />
+                                          <Pane fx:id="pan11" layoutX="10.0" layoutY="85.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Pane fx:id="pan12" layoutX="10.0" layoutY="60.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Pane fx:id="pan13" layoutX="10.0" layoutY="35.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Pane fx:id="pan20" layoutX="10.0" layoutY="10.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="2" />
+                                          <Pane fx:id="pan21" layoutX="10.0" layoutY="35.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Pane fx:id="pan22" layoutX="10.0" layoutY="60.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Pane fx:id="pan23" layoutX="10.0" layoutY="85.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                          <Pane fx:id="pan30" layoutX="34.0" layoutY="10.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" />
+                                          <Pane fx:id="pan31" layoutX="34.0" layoutY="35.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                          <Pane fx:id="pan32" layoutX="34.0" layoutY="60.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <Pane fx:id="pan33" layoutX="34.0" layoutY="85.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <Pane fx:id="pan40" layoutX="10.0" layoutY="10.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="4" />
+                                          <Pane fx:id="pan41" layoutX="10.0" layoutY="35.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                          <Pane fx:id="pan42" layoutX="10.0" layoutY="60.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                          <Pane fx:id="pan43" layoutX="10.0" layoutY="85.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                          <Pane fx:id="pan50" layoutX="34.0" layoutY="10.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="5" />
+                                          <Pane fx:id="pan51" layoutX="34.0" layoutY="35.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                          <Pane fx:id="pan52" layoutX="34.0" layoutY="60.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                          <Pane fx:id="pan53" layoutX="34.0" layoutY="85.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                                          <Pane fx:id="pan60" layoutX="58.0" layoutY="10.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="6" />
+                                          <Pane fx:id="pan61" layoutX="58.0" layoutY="35.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                          <Pane fx:id="pan62" layoutX="58.0" layoutY="60.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                                          <Pane fx:id="pan63" layoutX="58.0" layoutY="85.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                                          <Pane fx:id="pan70" layoutX="82.0" layoutY="10.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="7" />
+                                          <Pane fx:id="pan71" layoutX="82.0" layoutY="35.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                                          <Pane fx:id="pan72" layoutX="82.0" layoutY="60.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                                          <Pane fx:id="pan73" layoutX="82.0" layoutY="85.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox maxWidth="120.0" minWidth="104.0" prefHeight="135.0" prefWidth="104.0">
+                           <children>
+                              <Label maxWidth="104.0" minWidth="104.0" prefWidth="104.0" styleClass="label-texto-16" text="Recientes:">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <AnchorPane maxHeight="104.0" maxWidth="104.0" minHeight="104.0" minWidth="104.0" prefHeight="104.0" prefWidth="104.0" styleClass="anchor-base-borde">
+                                 <children>
+                                    <GridPane maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Pane fx:id="panRecientes0" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" />
+                                          <Pane fx:id="panRecientes4" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.rowIndex="1" />
+                                          <Pane fx:id="panRecientes8" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.rowIndex="2" />
+                                          <Pane fx:id="panRecientesC" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.rowIndex="3" />
+                                          <Pane fx:id="panRecientes1" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="1" />
+                                          <Pane fx:id="panRecientes5" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Pane fx:id="panRecientes9" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Pane fx:id="panRecientesD" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Pane fx:id="panRecientes2" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="2" />
+                                          <Pane fx:id="panRecientes6" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Pane fx:id="panRecientesA" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Pane fx:id="panRecientesE" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                          <Pane fx:id="panRecientes3" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="3" />
+                                          <Pane fx:id="panRecientes7" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                          <Pane fx:id="panRecientesB" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <Pane fx:id="panRecientesF" prefHeight="200.0" prefWidth="200.0" styleClass="pane-colores-recientes" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </AnchorPane>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="70.0" right="70.0" top="25.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label maxWidth="490.0" minWidth="490.0" prefWidth="490.0" styleClass="label-texto-16" text="Color Elegido en Hexadecimal">
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox maxWidth="290.0" minWidth="290.0" prefHeight="100.0" prefWidth="290.0">
+                     <children>
+                        <VBox maxWidth="80.0" minWidth="80.0" prefHeight="100.0" prefWidth="80.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" styleClass="label-texto-16" text="Nuevo">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <AnchorPane maxHeight="60.0" maxWidth="80.0" minHeight="60.0" minWidth="80.0" prefHeight="60.0" prefWidth="80.0" styleClass="anchor-base-borde">
+                                 <children>
+                                    <Pane fx:id="panNuevo" layoutX="7.0" prefHeight="146.0" prefWidth="151.0" styleClass="pane-color-nuevo" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <Label fx:id="lblHexaColor" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="70.0" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" styleClass="label-texto-16" text="FFFFFF">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Button fx:id="btnPintarTexto" maxHeight="32.0" maxWidth="180.0" minHeight="32.0" minWidth="180.0" mnemonicParsing="false" onAction="#pintarTexto" prefHeight="32.0" prefWidth="180.0" styleClass="boton-aceptar-largo" text="Pintar Texto">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnResaltarTexto" maxHeight="32.0" maxWidth="180.0" minHeight="32.0" minWidth="180.0" mnemonicParsing="false" onAction="#resaltarTexto" prefHeight="32.0" prefWidth="180.0" styleClass="boton-segunda-opcion-largo" text="Pintar Fondo">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="125.0" right="140.0" top="15.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
