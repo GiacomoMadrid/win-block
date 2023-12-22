@@ -42,11 +42,15 @@ public class PrincipalController implements Initializable {
     @FXML private AnchorPane anchorPrograma;
     @FXML private Label lblPrograma;
     @FXML private Label lblIcono;
+    
     @FXML private Button btnOcultar;
     @FXML private Button btnSalir;
     @FXML private Button btnAumentar;
-    @FXML private TabPane panPestannas;
+    @FXML private Button btnCerrarPestanna;
+    
     @FXML private Button btnNuevo;
+    
+    @FXML private TabPane panPestannas;
     @FXML private Slider sliderTexto;
     @FXML private Label lblTamannoTexto;    
     @FXML private Label lblNumeracionPagina;
@@ -90,7 +94,7 @@ public class PrincipalController implements Initializable {
                 );
                 
             }else{
-                sliderTexto.setValue(8);
+                sliderTexto.setValue(5.0);
                 lblTamannoTexto.setText(actualizarLabelTexto(0.0));
             }
             actualizarIndice();
@@ -173,7 +177,21 @@ public class PrincipalController implements Initializable {
     @FXML
     private void agregarRollito(ActionEvent event){
         programa.agregarPestanna();
-        sliderTexto.setValue(16.0);
+        sliderTexto.setValue(12.0);
+    }
+    
+    @FXML
+    private void cerrarPestanna(ActionEvent event){
+        try{
+            if(programa.isExistencia() == true){
+                programa.cerrarPestanna();  
+                if(programa.isExistencia() == false){
+                    sliderTexto.setValue(5.0);
+                    
+                }
+            }  
+        } catch(Exception ex){
+        }
     }
     
     // ------------------------- Texto:
@@ -195,7 +213,7 @@ public class PrincipalController implements Initializable {
     
     private void acomodarSliderAlIniciar(){
         if(programa.isExistencia() == true){
-            sliderTexto.setValue(16.0);
+            sliderTexto.setValue(12.0);
         }
     }
     
@@ -215,8 +233,7 @@ public class PrincipalController implements Initializable {
     }
     
     // ------------------------- Herramientas:
-    
-    
+        
        
     @FXML
     private void iniciarPaletaKolores(ActionEvent event){//Paleta de Colores

@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" maxWidth="442.0" minHeight="442.0" prefHeight="760.0" prefWidth="442.0" styleClass="anchor-base-ventana" stylesheets="@../recursos/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ColorController">
+<AnchorPane id="AnchorPane" maxWidth="542.0" minHeight="442.0" prefHeight="632.0" prefWidth="542.0" styleClass="anchor-base-ventana" stylesheets="@../recursos/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ColorController">
    <children>
       <AnchorPane fx:id="anchorPrograma" layoutX="10.0" layoutY="10.0" onMouseDragged="#moverVentana" onMousePressed="#getCoordinates" prefHeight="40.0" prefWidth="200.0" styleClass="barra-programa" stylesheets="@../recursos/estilos.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="lblPrograma" alignment="CENTER" contentDisplay="CENTER" ellipsisString="." layoutX="47.0" layoutY="5.0" maxHeight="36.0" minHeight="36.0" prefHeight="36.0" prefWidth="416.0" styleClass="titulo-ventana" stylesheets="@../recursos/estilos.css" text="Paleta de colores w̃" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="4.0" />
+            <Label fx:id="lblPrograma" alignment="CENTER" contentDisplay="CENTER" ellipsisString="." layoutX="47.0" layoutY="5.0" maxHeight="36.0" minHeight="36.0" prefHeight="36.0" prefWidth="416.0" style="-fx-text-fill: #636363;" styleClass="titulo-ventana" stylesheets="@../recursos/estilos.css" text="PALETA DE COLORES w̃" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="4.0" />
             <Label fx:id="lblIcono" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="2.0" prefHeight="32.0" prefWidth="32.0" style="-fx-background-image: url('/recursos/imagenes/Kolores1.png');" styleClass="label-icono" stylesheets="@../recursos/estilos.css" textAlignment="CENTER" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="4.0" />
             <Button fx:id="btnSalir" contentDisplay="CENTER" ellipsisString="." maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" onAction="#clickSalir" prefHeight="32.0" prefWidth="32.0" style="-fx-background-image: url('/recursos/imagenes/CerrarIco.png');" styleClass="boton-accion" stylesheets="@../recursos/estilos.css" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="4.0" />
             <Button fx:id="btnOcultar" contentDisplay="CENTER" ellipsisString="." layoutX="10.0" layoutY="10.0" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" onAction="#clickOcultar" prefHeight="32.0" prefWidth="32.0" style="-fx-background-image: url('/recursos/imagenes/MinimisarIco.png');" styleClass="boton-accion" stylesheets="@../recursos/estilos.css" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="4.0" />
@@ -25,21 +25,11 @@
       </AnchorPane>
       <AnchorPane maxHeight="600.0" minHeight="600.0" prefHeight="600.0" prefWidth="200.0" styleClass="anchor-base-ventana-secundaria" stylesheets="@../recursos/estilos.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
          <children>
-            <VBox layoutX="14.0" layoutY="14.0" maxWidth="526.0" minWidth="526.0" prefHeight="200.0" prefWidth="526.0" styleClass="vbox-color" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox layoutX="14.0" layoutY="14.0" maxWidth="526.0" minWidth="526.0" prefHeight="200.0" prefWidth="526.0" style="-fx-background-color: #C3C3C3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="490.0" minWidth="490.0" prefWidth="490.0" style="-fx-text-fill: #FF0000;" styleClass="label-texto-20" text="Pintar el texto/fondo">
+                  <Label maxWidth="490.0" minWidth="490.0" prefWidth="490.0" styleClass="label-texto-16" text="Elija un color">
                      <VBox.margin>
-                        <Insets left="16.0" right="16.0" top="30.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="490.0" minWidth="490.0" prefWidth="490.0" style="-fx-text-fill: #FFCC00;" styleClass="label-texto-20" text="═══════════════════════">
-                     <VBox.margin>
-                        <Insets left="16.0" right="16.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label maxWidth="490.0" minWidth="490.0" prefWidth="490.0" styleClass="label-texto-16" text="Elija un color:">
-                     <VBox.margin>
-                        <Insets left="16.0" right="16.0" top="5.0" />
+                        <Insets left="16.0" right="16.0" top="20.0" />
                      </VBox.margin>
                   </Label>
                   <Label fx:id="lblSliderRojo" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" style="-fx-text-fill: #FFFFFF;" styleClass="label-texto-16" text="Rojo: 0">
@@ -198,7 +188,7 @@
                         <Insets left="70.0" right="70.0" top="25.0" />
                      </VBox.margin>
                   </HBox>
-                  <Label maxWidth="490.0" minWidth="490.0" prefWidth="490.0" styleClass="label-texto-16" text="Color Elegido en Hexadecimal">
+                  <Label maxWidth="490.0" minWidth="490.0" prefWidth="490.0" styleClass="label-texto-16" text="Selecione una acción">
                      <VBox.margin>
                         <Insets left="16.0" right="16.0" top="25.0" />
                      </VBox.margin>
