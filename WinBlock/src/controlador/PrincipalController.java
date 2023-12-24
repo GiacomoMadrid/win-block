@@ -289,6 +289,11 @@ public class PrincipalController implements Initializable {
     }
     
     @FXML
+    private void mostrarFuentes(){
+    
+    }
+    
+    @FXML
     private void copiarTexto(ActionEvent event){
         programa.copiar();
     }
