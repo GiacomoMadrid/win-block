@@ -72,17 +72,17 @@
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnCopiar" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Copiar1.png');" styleClass="boton-herramientas">
+                  <Button fx:id="btnCopiar" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#copiarTexto" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Copiar1.png');" styleClass="boton-herramientas">
                      <HBox.margin>
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnCortar" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Cortar1.png');" styleClass="boton-herramientas">
+                  <Button fx:id="btnCortar" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#cortarTexto" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Cortar1.png');" styleClass="boton-herramientas">
                      <HBox.margin>
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnPegar" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Pegar1.png');" styleClass="boton-herramientas">
+                  <Button fx:id="btnPegar" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#pegarTexto" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Pegar1.png');" styleClass="boton-herramientas">
                      <HBox.margin>
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>

@@ -1,14 +1,14 @@
 package modelo;
 
+import javafx.scene.input.Clipboard;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.LinkedList;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TabPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
@@ -182,7 +182,32 @@ public class Programa {
         */
     }
     
+    public void copiar(){
+        String seleccion = listaDocumento.get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().getSelectedText();
+        agregarAlPortapapeles(seleccion);
+    }
     
+    public void cortar() {
+        String seleccion = listaDocumento.get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().getSelectedText();
+        agregarAlPortapapeles(seleccion);
+        listaDocumento.get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().replaceSelection("");
+    }
+    
+    public void pegar() {
+        Clipboard portapapeles = Clipboard.getSystemClipboard();
+        if (portapapeles.hasString()) {
+            String content = portapapeles.getString();
+            int caretPosition = listaDocumento.get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().getCaretPosition();
+            listaDocumento.get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().insertText(caretPosition, content);
+        }
+    }
+    
+    private void agregarAlPortapapeles(String textoSeleccionado) {
+        Clipboard portapapeles = Clipboard.getSystemClipboard();
+        ClipboardContent contenido = new ClipboardContent();
+        contenido.putString(textoSeleccionado);
+        portapapeles.setContent(contenido);
+    }
     
     // ----------------------------------- GET & SET ----------------------------------------
     

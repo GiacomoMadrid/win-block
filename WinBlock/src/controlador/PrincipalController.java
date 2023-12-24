@@ -229,13 +229,8 @@ public class PrincipalController implements Initializable {
             }  
         } catch(Exception ex){
         }
-    }
-    
-    
-    
-    
-    
-    
+    }    
+        
     // ------------------------- Texto:
     
     private void redimencionarTexto(Double valor) {
@@ -274,9 +269,6 @@ public class PrincipalController implements Initializable {
         }
     }
     
-    // ------------------------- Herramientas:
-        
-       
     @FXML
     private void iniciarPaletaKolores(ActionEvent event){//Paleta de Colores
         try {
@@ -295,6 +287,26 @@ public class PrincipalController implements Initializable {
             
         }
     }
+    
+    @FXML
+    private void copiarTexto(ActionEvent event){
+        programa.copiar();
+    }
+    
+    @FXML
+    private void cortarTexto(ActionEvent event){
+        programa.cortar();
+    }
+    
+    @FXML
+    private void pegarTexto(ActionEvent event){
+        programa.pegar();
+    }
+    
+    // ------------------------- Herramientas:
+        
+       
+    
     
     @FXML
     private void iniciarBusqueda(){
