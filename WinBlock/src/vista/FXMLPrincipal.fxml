@@ -37,17 +37,17 @@
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnAbrir" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/RoyitoAbierto.png');" styleClass="boton-herramientas">
+                  <Button fx:id="btnAbrir" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#abrirArchivo" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/RoyitoAbierto.png');" styleClass="boton-herramientas">
                      <HBox.margin>
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnGuardar" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Ikroye1.png');" styleClass="boton-herramientas">
+                  <Button fx:id="btnGuardar" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#guardarArchivo" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Ikroye1.png');" styleClass="boton-herramientas">
                      <HBox.margin>
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnGuardarComo" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Ikroye2.png');" styleClass="boton-herramientas">
+                  <Button fx:id="btnGuardarComo" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#guardarArchivoComo" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Ikroye2.png');" styleClass="boton-herramientas">
                      <HBox.margin>
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML2.java to edit this template
  */
 package controlador;
+import java.io.File;
 import modelo.Programa;
 
 import java.net.URL;
@@ -60,13 +61,15 @@ public class PrincipalController implements Initializable {
     private double coordenadaY;
     private boolean maximizado;
     private Programa programa;
+    private double tamannoTexto;
     //Métodos:  
     
     // ------------------------------------------- Inicializador ---------------------------------------------
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.maximizado = false;
-        this.programa = new Programa(panPestannas);
+        this.tamannoTexto = 16.0;
+        this.programa = new Programa(panPestannas);        
         actualizarIndice();
         
         //Slider Texto
@@ -78,7 +81,7 @@ public class PrincipalController implements Initializable {
                     lblTamannoTexto.setText(actualizarLabelTexto((Double)newValue));
                     
                 }else{
-                    sliderTexto.setValue(8);
+                    sliderTexto.setValue(sliderTexto.getMin());
                     lblTamannoTexto.setText(actualizarLabelTexto(0.0));
                 }
             }
@@ -94,7 +97,7 @@ public class PrincipalController implements Initializable {
                 );
                 
             }else{
-                sliderTexto.setValue(5.0);
+                sliderTexto.setValue(sliderTexto.getMin());
                 lblTamannoTexto.setText(actualizarLabelTexto(0.0));
             }
             actualizarIndice();
@@ -173,11 +176,45 @@ public class PrincipalController implements Initializable {
     
     // ------------------------------------- Caja de Herramientas ------------------------------------------
     
-    // ------------------------- Royito:
+    // ------------------------- Archivo:
     @FXML
     private void agregarRollito(ActionEvent event){
         programa.agregarPestanna();
-        sliderTexto.setValue(12.0);
+        sliderTexto.setValue(tamannoTexto);
+    }
+    
+    @FXML
+    private void abrirArchivo(ActionEvent event){
+        programa.abrirArchivo();
+        
+        if(programa.isExistencia()){
+            sliderTexto.setValue(tamannoTexto);
+        }
+    }
+    
+    @FXML
+    private void guardarArchivo(ActionEvent event){
+        
+        try{                    
+            if(programa.isExistencia()){   
+                File archivo = programa.getListaDocumento().get(panPestannas.getSelectionModel().getSelectedIndex()).getArchivo();
+                if (archivo == null || !archivo.exists()) {
+                    programa.guardarComo();
+
+                } else {
+                    programa.guardar(archivo);
+    
+                }
+            }
+        }catch(Exception ex){        
+        }
+    }
+    
+    @FXML
+    private void guardarArchivoComo(ActionEvent event){
+        if(programa.isExistencia()){ 
+            programa.guardarComo();
+        }
     }
     
     @FXML
@@ -186,13 +223,18 @@ public class PrincipalController implements Initializable {
             if(programa.isExistencia() == true){
                 programa.cerrarPestanna();  
                 if(programa.isExistencia() == false){
-                    sliderTexto.setValue(5.0);
+                    sliderTexto.setValue(sliderTexto.getMin());
                     
                 }
             }  
         } catch(Exception ex){
         }
     }
+    
+    
+    
+    
+    
     
     // ------------------------- Texto:
     
@@ -213,7 +255,7 @@ public class PrincipalController implements Initializable {
     
     private void acomodarSliderAlIniciar(){
         if(programa.isExistencia() == true){
-            sliderTexto.setValue(12.0);
+            sliderTexto.setValue(tamannoTexto);
         }
     }
     

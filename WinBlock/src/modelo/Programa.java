@@ -1,11 +1,16 @@
 package modelo;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.LinkedList;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 
 /**
  *
@@ -68,13 +73,114 @@ public class Programa {
         comprobarPrimera();    
     }
     
-    
-    
+    public void agregarDocumentoAPestanna(File archivo){
+        //Aumentar el índice en 1:
+        numPestannas++;
+        comprobarPrimera();
+        
+        //Preparar Documento:
+        AnchorPane anchorPane = new AnchorPane();
+        Documento documento = new Documento();
+        documento.setArchivo(archivo);
+        panPestannas.getTabs().add(documento.getPestanna());
+        documento.getPestanna().setText(archivo.getName());
+        
+        //Añadir a las Listas:
+        listaArchivos.add(documento.getArchivo());
+        listaDocumento.add(documento);        
+        
+        panPestannas.getSelectionModel().select(numPestannas);
+        documento.limpiarComponente();        
+        
+        existencia = true;       
+    }
     
     public void comprobarPrimera(){
         primera = (numPestannas == 0);
     }
     
+    
+    public void guardar(File archivo) {        
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(archivo));
+            writer.write(listaDocumento.get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().getText());
+            writer.close();
+        } catch (Exception ex) {
+        }
+    }
+
+    public void guardarComo() {
+        /*
+        this.principal.lblAncla.setIcon(icoAncla1); 
+        this.principal.setAlwaysOnTop(false);
+        */
+        
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar como...");        
+        FileChooser.ExtensionFilter filtroArchivosTxt = new FileChooser.ExtensionFilter("Archivos de Texto (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(filtroArchivosTxt);
+        File archivo = fileChooser.showSaveDialog(null);
+        
+        if (archivo != null) {
+            if (!archivo.getName().endsWith(".txt")) {
+                archivo = new File(archivo.getAbsolutePath() + ".txt");
+            }
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter(archivo));
+                writer.write(listaDocumento.get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().getText());
+                writer.close();
+            } catch (Exception ex) {
+            }
+        }
+        /*
+        
+        if(anclaje == true){
+            this.principal.lblAncla.setIcon(icoAncla2);
+        }else{
+            this.principal.lblAncla.setIcon(icoAncla1);
+        }
+        this.principal.setAlwaysOnTop(anclaje); 
+        
+        */
+    }
+    
+    public void abrirArchivo() {  
+        /*
+        this.principal.lblAncla.setIcon(icoAncla1); 
+        this.principal.setAlwaysOnTop(false);
+        */
+        
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Abrir");
+        FileChooser.ExtensionFilter filtroArchivosTxt = new FileChooser.ExtensionFilter("Archivos de Texto (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(filtroArchivosTxt);
+        File archivo = fileChooser.showOpenDialog(null);
+        
+        if (archivo != null) {
+            try(BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
+                agregarDocumentoAPestanna(archivo);                 
+                StringBuilder contenido = new StringBuilder();
+                String linea;             
+                
+                while ((linea = reader.readLine()) != null) {
+                    contenido.append(linea).append("\n");
+                }
+                reader.close();
+                listaDocumento.get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().setText(contenido.toString());
+                                
+            } catch (Exception ex) {
+            }
+        }
+        
+        /*
+        if(anclaje == true){
+            this.principal.lblAncla.setIcon(icoAncla2);
+        }else{
+            this.principal.lblAncla.setIcon(icoAncla1);
+        }
+        this.principal.setAlwaysOnTop(anclaje);
+        */
+    }
     
     
     
