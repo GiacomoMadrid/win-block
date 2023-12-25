@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="881.0" prefWidth="723.0" styleClass="anchor-base-ventana" stylesheets="@../recursos/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PrincipalController">
    <children>
-      <AnchorPane fx:id="anchorPrograma" onMouseDragged="#moverVentana" onMousePressed="#getCoordinates" prefHeight="40.0" prefWidth="200.0" styleClass="barra-programa" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="anchorPrograma" onMouseDragged="#moverVentana" onMousePressed="#obtenerCoordenadas" prefHeight="40.0" prefWidth="200.0" styleClass="barra-programa" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="lblPrograma" alignment="CENTER" contentDisplay="CENTER" ellipsisString="." layoutX="44.0" layoutY="2.0" maxHeight="36.0" minHeight="36.0" prefHeight="36.0" prefWidth="736.0" styleClass="titulo-ventana" stylesheets="@../recursos/estilos.css" text="-- Win Block w̃ --" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="2.0" />
             <Label fx:id="lblIcono" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="2.0" prefHeight="32.0" prefWidth="32.0" styleClass="label-icono" textAlignment="CENTER" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="4.0" />
@@ -32,7 +32,7 @@
          <children>
             <HBox layoutX="4.0" layoutY="4.0" maxHeight="44.0" minHeight="44.0" prefHeight="44.0" prefWidth="711.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="btnNuevo" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#agregarRollito" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/RoyitoNuevo.png');" styleClass="boton-herramientas">
+                  <Button fx:id="btnNuevo" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#agregarArchivo" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/RoyitoNuevo.png');" styleClass="boton-herramientas">
                      <HBox.margin>
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>

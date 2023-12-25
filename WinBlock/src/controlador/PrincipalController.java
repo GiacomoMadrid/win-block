@@ -62,11 +62,13 @@ public class PrincipalController implements Initializable {
     private boolean maximizado;
     private Programa programa;
     private double tamannoTexto;
+    private PrincipalController principal;
     //Métodos:  
     
     // ------------------------------------------- Inicializador ---------------------------------------------
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.principal = this;
         this.maximizado = false;
         this.tamannoTexto = 16.0;
         this.programa = new Programa(panPestannas);        
@@ -144,7 +146,7 @@ public class PrincipalController implements Initializable {
     //Barra de Programa:
     
     @FXML
-    private void getCoordinates(MouseEvent event) {
+    private void obtenerCoordenadas(MouseEvent event) {
         coordenadaX = event.getX();
         coordenadaY = event.getY();
     }
@@ -178,7 +180,7 @@ public class PrincipalController implements Initializable {
     
     // ------------------------- Archivo:
     @FXML
-    private void agregarRollito(ActionEvent event){
+    private void agregarArchivo(ActionEvent event){
         programa.agregarPestanna();
         sliderTexto.setValue(tamannoTexto);
     }
@@ -320,17 +322,32 @@ public class PrincipalController implements Initializable {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             
+            BuscarController controladorBusqueda = (BuscarController) loader.getController();
+            controladorBusqueda.recibirControladorPrincipal(principal, programa.getListaDocumento().get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().getText());
+            
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/recursos/imagenes/Pajina2.png"));
             stage.setTitle("Win Block | Buscar y reemplazar");
             stage.setScene(scene);
-            //stage.initStyle(StageStyle.UNDECORATED);
+            stage.initStyle(StageStyle.UNDECORATED);
             
             stage.show();
         } catch (Exception ex) {
             
         }
     }
+
+    public TabPane getPanPestannas() {
+        return panPestannas;
+    }
+
+    public Programa getPrograma() {
+        return programa;
+    }
+    
+    
+    
+    
     
     
     

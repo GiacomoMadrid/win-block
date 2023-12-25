@@ -110,6 +110,40 @@
     -fx-background-color: #B17B00;
 }
 
+.boton-gris{
+    -fx-background-color: #BFBFBF;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Consolas"; 
+    -fx-font-size: 14px;
+    
+}
+
+.boton-gris:hover{
+    -fx-background-color: #CFCFCF;    
+}
+
+.boton-gris:pressed{
+    -fx-background-color: #DFDFDF;    
+}
+
+.boton-gris-aceptar{
+    -fx-background-color: #AFAFAF;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Consolas"; 
+    -fx-font-size: 14px;
+    
+}
+
+.boton-gris-aceptar:hover{
+    -fx-background-color: #BFBFBF;    
+}
+
+.boton-gris-aceptar:pressed{
+    -fx-background-color: #CFCFCF;    
+}
+
+
+
 /*************************************************** Barras ************************************************/
 .barra-programa{
     -fx-background-color: #FFFFFF;
@@ -197,7 +231,7 @@
 }
 
 
-.funte-win-20{
+.fuente-14{
     -fx-font-family:  "Consolas";
     -fx-text-fill:  #000000;
     -fx-font-size: 14px;

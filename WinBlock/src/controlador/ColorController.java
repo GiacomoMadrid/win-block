@@ -45,7 +45,6 @@ public class ColorController implements Initializable {
     
     private double coordenadaX;
     private double coordenadaY;
-    private boolean maximizado;
     
     private Documento documento;
     private Pane[] listaColores;
