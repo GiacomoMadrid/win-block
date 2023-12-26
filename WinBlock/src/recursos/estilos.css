@@ -212,30 +212,37 @@
 .titulo-ventana{
     -fx-font-family:  "Consolas";
     -fx-font-size: 20px;
-    -fx-text-fill: #F7C720;
-    
-    
+    -fx-text-fill: #F7C720;        
 }
 
 .documento{
     -fx-font-family:  "Consolas";
     -fx-font-size: 16px;
-    -fx-text-alignment: left;
-    -fx-background-color:  #FFFFFF;
+    -fx-text-alignment: left;    
+    -fx-background-color: transparent;        
     -fx-border-color:  #FFFFFF;
-    -fx-text-fill:  #000000;
+    -fx-text-fill:  #000000;    
     -fx-highlight-fill: #E9E954;
-    -fx-highlight-text-fill: #A3A3A3; 
-    
+    -fx-highlight-text-fill: #A3A3A3;     
     
 }
 
+.documento .scroll-pane{
+    -fx-background-color: transparent;
+}
 
-.fuente-14{
+.fondo {
+    -fx-control-inner-background: #FFFFFF;
+}
+
+.color-texto {
+    -fx-text-fill:  #000000;
+}
+
+.fuente-14 {
     -fx-font-family:  "Consolas";
     -fx-text-fill:  #000000;
-    -fx-font-size: 14px;
-    
+    -fx-font-size: 14px;    
 }
 
 

@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -21,7 +20,6 @@ public class WinBlock extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/vista/FXMLPrincipal.fxml"));
         
         Scene scene = new Scene(root);        
-        Font.loadFont(getClass().getResourceAsStream("/recursos/FuenteWin.ttf"), 16);
         scene.getStylesheets().add("/recursos/estilos.css");
         
         

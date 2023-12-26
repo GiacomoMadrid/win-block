@@ -277,7 +277,12 @@ public class PrincipalController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/FXMLColor.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
+            //scene.getStylesheets().add("/recursos/estilos.css");
+            scene.getStylesheets().add(getClass().getResource("/recursos/estilos.css").toExternalForm());
             
+            ColorController controladorColor = (ColorController) loader.getController();
+            controladorColor.recibirControladorPrincipal(principal, programa.getListaDocumento().get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto());
+                        
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/recursos/imagenes/Kolores1.png"));
             stage.setTitle("Win Block| Paleta de Colores");

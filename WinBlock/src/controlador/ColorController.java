@@ -9,19 +9,25 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import modelo.Documento;
 
@@ -43,6 +49,7 @@ public class ColorController implements Initializable {
     @FXML Pane panRecientes0, panRecientes1, panRecientes2, panRecientes3, panRecientes4, panRecientes5, panRecientes6, panRecientes7, 
                panRecientes8, panRecientes9, panRecientesA, panRecientesB, panRecientesC, panRecientesD, panRecientesE, panRecientesF;
     
+    private PrincipalController principal;
     private double coordenadaX;
     private double coordenadaY;
     
@@ -50,6 +57,7 @@ public class ColorController implements Initializable {
     private Pane[] listaColores;
     private ArrayList<Pane> listaRecientes;
     private int indicador;
+    private TextArea areaTexto;
     
     private double R;
     private double G;
@@ -98,7 +106,13 @@ public class ColorController implements Initializable {
             }
         }); 
         
-    }    
+    }  
+    
+    void recibirControladorPrincipal(PrincipalController principal, TextArea areaTexto) {
+       this.principal = principal;
+       this.areaTexto = areaTexto;
+    }
+    
     // --------------------------------------- Barra de Programa---------------------------------------------
     
     //Botones de Control:
@@ -135,16 +149,40 @@ public class ColorController implements Initializable {
     
     @FXML
     private void pintarTexto(){
-        
-        guardarColorReciente();
+        if(principal.getPrograma().isExistencia() == true){
+            String valor = convertirColorAHexadecimal(
+                    ((Double)sliderRojo.getValue()).intValue(),
+                    ((Double)sliderAzul.getValue()).intValue(),
+                    ((Double)sliderVerde.getValue()).intValue()
+            );
+            
+            principal.getPrograma()
+                    .getListaDocumento()
+                    .get(principal.getPanPestannas().getSelectionModel().getSelectedIndex())
+                    .getAreaTexto().getStyleClass().add("-fx-text-fill:"+ valor +";");
+            
+            guardarColorReciente();
+        }
     }
     
     
     @FXML
-    private void resaltarTexto(){
-        
-        guardarColorReciente();
-    }   
+    private void pintarFondo() {
+        if (principal.getPrograma().isExistencia()) {
+            String valor = convertirColorAHexadecimal(
+                    ((Double)sliderRojo.getValue()).intValue(),
+                    ((Double)sliderAzul.getValue()).intValue(),
+                    ((Double)sliderVerde.getValue()).intValue()
+            );
+            
+            principal.getPrograma()
+                    .getListaDocumento()
+                    .get(principal.getPanPestannas().getSelectionModel().getSelectedIndex())
+                    .getAreaTexto().getStyleClass().add("-fx-control-inner-background: " + valor + ";");            
+                       
+            guardarColorReciente();
+        }
+    } 
     
     @FXML
     private void actualizarSliderRojoMouse(ScrollEvent event){
@@ -305,7 +343,24 @@ public class ColorController implements Initializable {
     }
     
     public String convertirColorAHexadecimal(int red, int green, int blue){
-        String strColor = "#"+conversorHexaText(red) + conversorHexaText(green) + conversorHexaText(blue);        
+        String strRed = conversorHexaText(red);
+        String strGreen = conversorHexaText(green);
+        String strBlue = conversorHexaText(blue);
+        
+        if(red < 16){
+            strRed = "0"+conversorHexaText(red);
+        }
+        
+        if(green < 16){
+            strGreen = "0"+conversorHexaText(green);
+        }
+        
+        if(blue < 16){
+            strBlue = "0"+conversorHexaText(blue);
+        }
+        
+        String strColor = ("#" + strRed + strGreen + strBlue);   
+        
         return strColor;
     }
     
@@ -340,23 +395,10 @@ public class ColorController implements Initializable {
         int rojo = ((Double) sliderRojo.getValue()).intValue();
         int verde = ((Double) sliderVerde.getValue()).intValue();
         int azul = ((Double) sliderAzul.getValue()).intValue();
-        String strRed = conversorHexaText(rojo);
-        String strGreen = conversorHexaText(verde);
-        String strBlue = conversorHexaText(azul);
         
-        if(rojo < 16){
-            strRed = "0"+conversorHexaText(rojo);
-        }
-        
-        if(verde < 16){
-            strGreen = "0"+conversorHexaText(verde);
-        }
-        
-        if(azul < 16){
-            strBlue = "0"+conversorHexaText(azul);
-        }
-        
-        lblHexaColor.setText(strRed+strGreen+strBlue);
+        String strColor = convertirColorAHexadecimal(rojo, verde, azul);
+                
+        lblHexaColor.setText(strColor);
     }
     
     private void acomodarSlidersAlIniciar(){
@@ -421,5 +463,7 @@ public class ColorController implements Initializable {
         
         return numWNam; 
     }
+
+    
     
 }

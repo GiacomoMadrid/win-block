@@ -224,7 +224,7 @@
                                     <Insets top="20.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="btnResaltarTexto" maxHeight="32.0" maxWidth="180.0" minHeight="32.0" minWidth="180.0" mnemonicParsing="false" onAction="#resaltarTexto" prefHeight="32.0" prefWidth="180.0" styleClass="boton-segunda-opcion-largo" text="Pintar Fondo">
+                              <Button fx:id="btnResaltarTexto" maxHeight="32.0" maxWidth="180.0" minHeight="32.0" minWidth="180.0" mnemonicParsing="false" onAction="#pintarFondo" prefHeight="32.0" prefWidth="180.0" styleClass="boton-segunda-opcion-largo" text="Pintar Fondo">
                                  <VBox.margin>
                                     <Insets top="10.0" />
                                  </VBox.margin>

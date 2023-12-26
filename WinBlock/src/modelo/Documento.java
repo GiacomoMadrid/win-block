@@ -60,7 +60,8 @@ public final class Documento extends AnchorPane{
         areaTexto.getStylesheets().add("/recursos/estilos.css");        
         pestanna.getStyleClass().add("pestanna");
         areaTexto.getStyleClass().add("documento");
-        
+        areaTexto.getStyleClass().add("fondo");
+        areaTexto.getStyleClass().add("color-texto");
     }
     
     public void limpiarComponente(){
