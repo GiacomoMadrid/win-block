@@ -92,12 +92,12 @@
                         <Insets left="8.0" />
                      </HBox.margin>
                   </Pane>
-                  <Button fx:id="btnDeshacer" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Deshaser.png');" styleClass="boton-herramientas">
+                  <Button fx:id="btnDeshacer" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#deshacer" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Deshaser.png');" styleClass="boton-herramientas">
                      <HBox.margin>
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnRehacer" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Rehaser.png');" styleClass="boton-herramientas">
+                  <Button fx:id="btnRehacer" maxHeight="36.0" maxWidth="36.0" minHeight="36.0" minWidth="36.0" mnemonicParsing="false" onAction="#rehacer" prefHeight="36.0" prefWidth="36.0" style="-fx-background-image: url('/recursos/imagenes/Rehaser.png');" styleClass="boton-herramientas">
                      <HBox.margin>
                         <Insets bottom="4.0" left="8.0" top="4.0" />
                      </HBox.margin>

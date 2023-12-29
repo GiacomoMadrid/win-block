@@ -149,17 +149,16 @@ public class ColorController implements Initializable {
     
     @FXML
     private void pintarTexto(){
-        if(principal.getPrograma().isExistencia() == true){
-            String valor = convertirColorAHexadecimal(
-                    ((Double)sliderRojo.getValue()).intValue(),
-                    ((Double)sliderAzul.getValue()).intValue(),
-                    ((Double)sliderVerde.getValue()).intValue()
-            );
+        if(principal.getPrograma().isExistencia() == true){            
+            Color color = Color.rgb(((Double)sliderRojo.getValue()).intValue(),
+                                    ((Double)sliderAzul.getValue()).intValue(),
+                                    ((Double)sliderVerde.getValue()).intValue()
+                            );
             
             principal.getPrograma()
                     .getListaDocumento()
                     .get(principal.getPanPestannas().getSelectionModel().getSelectedIndex())
-                    .getAreaTexto().getStyleClass().add("-fx-text-fill:"+ valor +";");
+                    .getAreaTexto();
             
             guardarColorReciente();
         }

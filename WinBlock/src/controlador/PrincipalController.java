@@ -316,8 +316,17 @@ public class PrincipalController implements Initializable {
     }
     
     // ------------------------- Herramientas:
-        
-       
+    
+    
+    @FXML
+    private void deshacer(){
+        programa.getListaDocumento().get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().undo();
+    }
+    
+    @FXML
+    private void rehacer(){
+        programa.getListaDocumento().get(panPestannas.getSelectionModel().getSelectedIndex()).getAreaTexto().redo();
+    }
     
     
     @FXML
@@ -341,6 +350,11 @@ public class PrincipalController implements Initializable {
             
         }
     }
+    
+    
+    
+    
+    // -------------------------------------------------- Get & Set ---------------------------------------------------
 
     public TabPane getPanPestannas() {
         return panPestannas;
